@@ -105,7 +105,7 @@
 		  <li>Organize office</li>
 		</ul>
 		<script>
-			//添加去除符号
+			
 			var mylist=document.getElementsByTagName("li");
 			var i;
 			for(i=0;i<mylist.length;i++){
@@ -115,7 +115,7 @@
 				span.appendChild(txt);
 				mylist[i].appendChild(span);
 			}
-			//添加删除效果
+			
 			var seven=document.getElementsByClassName("seven");
 			var i;
 			for(i=0;i<seven.length;i++){
@@ -124,14 +124,14 @@
 					div.style.display="none";
 				}
 			}
-			//添加点击后字体划线效果
+			
 			var qelist = document.querySelector('ul');
 			qelist.addEventListener('click',function(ev){
 				if(ev.target.tagName === 'LI'){
 					ev.target.classList.toggle('six');
 				}
 			},false);
-			//添加新文字效果
+			
 			function btnclick(){
 				var li=document.createElement("li");
 				var inpuvalue=document.getElementById("three").value;
