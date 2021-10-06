@@ -2,121 +2,160 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>
 		<style>
-		* {
-		            list-style-type: none;
-		            padding: 0;
-		            margin: 0;
-		        }
-		
-		        body {
-		            height: 100vh;
-		            display: flex;
-		            align-items: center;
-		            justify-content: center;
-		            background-color: #d3dafa;
-		        }
-		        .shell{
-		            position:fixed;
-		            width: 280px;
-		            height: 650px;
-		            background-color: #8a98c9;
-			    background-image: url(D:\HB\HBRR\WEB\Dayone\photo);
-		        }
-		        .buttons{
-		            margin: 60px 0;
-		            color: #fff;
-		        }
-		        .li{
-		            letter-spacing: 2px;
-		            font: 600 17px '';
-		            padding: 16px 52px;
-		            transition: .3s;
-		        }
-		        .li::after{
-		            content: '';
-		            position: absolute;
-		            left: 20px;
-		            margin-top: -22px;
-		            display: block;
-		            width: 20px;
-		            height: 20px;
-		            background-color: #fff;
-		            border-radius: 50%;
-		        }
-		        .buttons>li:hover{
-		            background-color: #beb5df;
-		        }
-		        
-		        .li ul{
-		            width: 0;
-		            height: 530px;
-		            padding: 60px 0;
-		            position: absolute;
-		            top: 0;
-		            right: 0;
-		            overflow: hidden;
-		            background-color: #59699b;
-		            transition: .3s;
-		        }
-		
-		        .li ul li{
-		            padding: 16px 24px;
-		            transition: .3s;
-		        }
-		
-		        .li:hover ul{
-		            width: 228px;
-		        }
-		        .li ul li:hover{
-		            background-color: #828eb9;
-		        }
+			bady{
+				margin:0;
+				min-width:250px;
+			}
+			*{
+				box-sizing:border-box;
+			}
+			ul{
+				margin:0;
+				padding:0;
+			}
+			ul li{
+				cursor:pointer;
+				position:relative;
+				font-size:18px;
+				transition:0.3s;
+				padding:12px 8px 12px 40px;
+				background-color:#eee;
+				user-select: none;
+			}
+			ul li:nth-child(odd){
+				background-color:#f9f9f9;
+			}
+			ul li:hover{
+				background-color:#ddd;
+			}
+			ul li.six{
+				background-color:#888;
+				color:#fff;
+				text-decoration:line-through;
+			}
+			ul li.six::before{
+				content: '';
+				position: absolute;
+				border-color: #fff;
+				border-style: solid;
+				border-width: 0 2px 2px 0;
+				top: 10px;
+				left: 16px;
+				transform: rotate(45deg);
+				height: 15px;
+				width: 7px;
+			}
+			.seven{
+				position:absolute;
+				right:0;
+				top:0;
+				padding:12px 16px 12px 16px;
+			}
+			.seven:hover{
+				background-color:aquamarine;
+				color:white;
+			}
+			.two{
+				background-color:bisque;
+				padding:30px 40px;
+				text-align:center;
+			}
+			.two:after{
+				content:"";
+				display:table;
+				clear:both;
+			}
+			input{
+				border:none;
+				padding:10px;
+				float:left;
+				width:75%;
+				font-size: 10px; 
+			}
+			.four{
+				padding: 7px;
+				width: 25%;
+				background:lightgreen;
+				/* color: #555; */
+				float: left;
+				text-align: center;
+				font-size: 16px;
+				cursor: pointer;
+				transition: 0.3s;
+			}
+			.four:hover{
+				background:tan;
+			}
 		</style>
 	</head>
 	<body>
-		 <nav class="shell">
-		        <ul class="buttons">
-		            <li class="li">
-		                management
-		                <ul>
-		                    <li><i class="iconfont icon-liebiao"></i>Sold  baby</li>
-		                    <li><i class="iconfont icon-cangku"></i>Evaluation</li>
-		                    <li><i class="iconfont icon-zhuti_tiaosepan"></i>Shopkeeper</li>
-		                    <li><i class="iconfont icon-qianbao"></i>Management</li>
-		                </ul>
-		            </li>
-		
-		            <li class="li">
-		                俞大娃
-		                <ul>
-		                    <li>Warehouse    </li>
-		                    <li>deliver goods</li>
-		                    <li>stock        </li>
-		                    <li>mail         </li>
-		                    <li>return goods </li>
-		                </ul>
-		            </li>
-		
-		            <li class="li">
-		                邓某人
-		                <ul>
-		                    <li>Release baby   </li>
-		                    <li>Posting Details</li>
-		                    <li>Shop decoration</li>
-		                </ul>
-		            </li>
-		
-		            <li class="li">
-		                王老六
-		                <ul>
-		                    <li>payment              </li>
-		                    <li>Loan goods           </li>
-		                    <li>Collection in advance</li>
-		                </ul>
-		            </li>
-		        </ul>
-		    </nav>
+		<div id="one" class="two">
+			<h2>记事本</h2>
+			<input id="three" type="text" placeholder="title...">
+			<span onclick="btnclick()" class="four">添加</span>
+		</div>
+		<ul id="five">
+		  <li>Hit the gym</li>
+		  <li class="six">Pay bills</li>
+		  <li>Meet George</li>
+		  <li>Buy eggs</li>
+		  <li>Read a book</li>
+		  <li>Organize office</li>
+		</ul>
+		<script>
+			//添加去除符号
+			var mylist=document.getElementsByTagName("li");
+			var i;
+			for(i=0;i<mylist.length;i++){
+				var span=document.createElement("span");
+				var txt=document.createTextNode("\u00D7");
+				span.className="seven";
+				span.appendChild(txt);
+				mylist[i].appendChild(span);
+			}
+			//添加删除效果
+			var seven=document.getElementsByClassName("seven");
+			var i;
+			for(i=0;i<seven.length;i++){
+			    seven[i].onclick=function(){
+					var div=this.parentElement;
+					div.style.display="none";
+				}
+			}
+			//添加点击后字体划线效果
+			var qelist = document.querySelector('ul');
+			qelist.addEventListener('click',function(ev){
+				if(ev.target.tagName === 'LI'){
+					ev.target.classList.toggle('six');
+				}
+			},false);
+			//添加新文字效果
+			function btnclick(){
+				var li=document.createElement("li");
+				var inpuvalue=document.getElementById("three").value;
+				var ttx=document.createTextNode(inpuvalue);
+				li.appendChild(ttx);
+				if(inpuvalue === ""){
+					alert("404");
+				}else{
+					document.getElementById("five").appendChild(li)
+				}
+				document.getElementById("three").value="";
+				 var span=document.createElement("span");
+				 var txt=document.createTextNode("\u00D7");
+				 span.className="seven";
+				 span.appendChild(txt);
+				 li.appendChild(span);
+				 for(i=0;i<seven.length;i++){
+					 seven[i].onclick=function(){
+						 var div=this.parentElement;
+						 div.style.display="none";
+					 }
+				 }
+				 
+			}
+		</script>
 	</body>
 </html>
